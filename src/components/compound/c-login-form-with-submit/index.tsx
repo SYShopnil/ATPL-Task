@@ -27,13 +27,11 @@ export const CLoginFormWithSubmit = () => {
 
   const handleSubmit = async (): Promise<void> => {
     setIsLoading(true);
-    const { message, payload, status } = await LoginController(formData);
-    if (payload.isLoggedIn && status == 202) {
-      cookies.set("auth", payload.token);
-      route.push("/dashboard/profile");
+    try {
+      await LoginController(formData);
+    } catch (err) {
+      setPayload("Somethings went wrong");
     }
-    setIsLoading(false);
-    setPayload(message);
   };
   return (
     <div className="flex justify-center items-center h-[80vh] bg-gray-100">

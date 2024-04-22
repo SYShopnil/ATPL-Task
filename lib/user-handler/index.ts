@@ -6,7 +6,7 @@ import {
   ISearchIndividualUserByEmailReturn,
 } from "@src/types/lib/user-handler";
 
-function searchIndividualUserByEmail(
+export async function searchIndividualUserByEmail(
   email: string
 ): Promise<ISearchIndividualUserByEmailReturn> {
   return new Promise(async (resolve) => {

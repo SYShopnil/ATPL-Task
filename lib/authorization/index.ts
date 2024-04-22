@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getLoggedInUser } from "../user-handler";
 
@@ -10,10 +11,10 @@ export async function Authorization(role: string[]) {
     } = await getLoggedInUser();
     if (loggedInUser) {
       if (!role.includes(`${loggedInUser.userType}`)) {
-        return false;
+        redirect("/unAuthorized");
       }
     } else {
-      return false;
+      redirect("/unAuthorized");
     }
   }
 }

@@ -1,48 +1,36 @@
-import { IUser } from "@src/types/db/user";
+"use server";
+import { cookies } from "next/headers";
 import {
   ILoginController,
   ILoginControllerResponse,
 } from "@src/types/lib/login-handler";
+import { searchIndividualUserByEmail } from "../user-handler";
+import { redirect } from "next/navigation";
 
 export async function LoginController({
   email,
   password,
 }: ILoginController): Promise<ILoginControllerResponse> {
+  let redirectPath = "";
+  const cookieStore = cookies();
   try {
-    const getAllUserResponse = await fetch("../../db/user.db.json");
-    const allUser: IUser[] = await getAllUserResponse.json();
-
-    const findUserByEmail = allUser.find(
-      (user) => user.email == email && user.password == password
-    );
-    if (findUserByEmail) {
-      return {
-        message: `${findUserByEmail.userName} logged in successfully`,
-        payload: {
-          isLoggedIn: true,
-          token: findUserByEmail.email,
-        },
-        status: 202,
-      };
+    const {
+      payload: { user },
+    } = await searchIndividualUserByEmail(email);
+    if (user && user.password == password) {
+      cookieStore.set("auth", user.email);
+      redirectPath = "/dashboard/profile";
     } else {
-      return {
-        message: "User Not Found",
-        payload: {
-          isLoggedIn: false,
-          token: "",
-        },
-        status: 404,
-      };
+      redirectPath = "/login";
     }
   } catch (err) {
+    redirectPath = "/";
     console.log(err);
-    return {
-      message: "Some things went wrong",
-      payload: {
-        isLoggedIn: false,
-        token: "",
-      },
-      status: 404,
-    };
+  } finally {
+    if (redirectPath) {
+      redirect(redirectPath);
+    } else {
+      redirect("/");
+    }
   }
 }
