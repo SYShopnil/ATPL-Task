@@ -17,25 +17,21 @@ export async function searchIndividualUserByEmail(
       return user.email == email;
     });
     if (getUser) {
-      setTimeout(() => {
-        resolve({
-          message: "",
-          status: 202,
-          payload: {
-            user: getUser,
-          },
-        });
-      }, 1000);
+      resolve({
+        message: "",
+        status: 202,
+        payload: {
+          user: getUser,
+        },
+      });
     } else {
-      setTimeout(() => {
-        resolve({
-          message: "",
-          status: 404,
-          payload: {
-            user: null,
-          },
-        });
-      }, 500);
+      resolve({
+        message: "",
+        status: 404,
+        payload: {
+          user: null,
+        },
+      });
     }
   });
 }

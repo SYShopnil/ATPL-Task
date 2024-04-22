@@ -1,16 +1,11 @@
 "use client";
-import { useCookies } from "next-client-cookies";
 import { LoginController } from "@root/lib/login-handler";
 import { Button } from "@src/components/root";
 import { BtnColorSchema } from "@src/types/root";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { FormData } from "@src/types/compound/c-login-form-with-submit";
 
 export const CLoginFormWithSubmit = () => {
-  const cookies = useCookies();
-  const route = useRouter();
-
   const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",

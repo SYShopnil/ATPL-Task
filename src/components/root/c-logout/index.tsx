@@ -2,16 +2,15 @@
 import React from "react";
 import { Button } from "../button";
 import { BtnColorSchema } from "@src/types/root";
-import { useCookies } from "next-client-cookies";
-import { EAuth } from "@src/types/common";
-import { useRouter } from "next/navigation";
+import { logoutController } from "@root/lib/login-handler";
 
 export const CLogout = () => {
-  const cookies = useCookies();
-  const route = useRouter();
-  const logoutHandler = () => {
-    cookies.remove(EAuth.AuthTokenCookieName);
-    route.push("/login");
+  const logoutHandler = async () => {
+    try {
+      await logoutController();
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <React.Fragment>

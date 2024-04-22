@@ -6,6 +6,7 @@ import {
 } from "@src/types/lib/login-handler";
 import { searchIndividualUserByEmail } from "../user-handler";
 import { redirect } from "next/navigation";
+import { EAuth } from "@src/types/common";
 
 export async function LoginController({
   email,
@@ -18,10 +19,11 @@ export async function LoginController({
       payload: { user },
     } = await searchIndividualUserByEmail(email);
     if (user && user.password == password) {
-      cookieStore.set("auth", user.email);
+      cookieStore.set(EAuth.AuthTokenCookieName, user.email);
+
       redirectPath = "/dashboard/profile";
     } else {
-      redirectPath = "/login";
+      redirectPath = "/";
     }
   } catch (err) {
     redirectPath = "/";
@@ -29,6 +31,23 @@ export async function LoginController({
   } finally {
     if (redirectPath) {
       redirect(redirectPath);
+    } else {
+      redirect("/");
+    }
+  }
+}
+
+export async function logoutController() {
+  const cookieStore = cookies();
+  let redirectUrl: string = "";
+  try {
+    cookieStore.delete(EAuth.AuthTokenCookieName);
+    redirectUrl = "/login";
+  } catch (err) {
+    redirectUrl = "/";
+  } finally {
+    if (redirectUrl) {
+      redirect(redirectUrl);
     } else {
       redirect("/");
     }

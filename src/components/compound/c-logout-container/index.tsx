@@ -1,4 +1,3 @@
-import { CookiesProvider } from "next-client-cookies/server";
 import React from "react";
 
 export function CIsLoggedInContainer({
@@ -12,7 +11,7 @@ export function CIsLoggedInContainer({
     <div>
       {isLoggedIn && (
         <>
-          <CookiesProvider>{children}</CookiesProvider>
+          <>{children}</>
         </>
       )}
     </div>
