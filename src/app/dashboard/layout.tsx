@@ -42,7 +42,7 @@ export default function DashboardLayout({
           );
         })}
       </nav>
-      <div className={`col-span-12 lg:col-span-10 bg-red-500`}>{children}</div>
+      <div className={`col-span-12 lg:col-span-10 `}>{children}</div>
     </div>
   );
 }

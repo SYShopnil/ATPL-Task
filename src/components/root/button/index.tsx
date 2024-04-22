@@ -1,9 +1,15 @@
 "use client";
 
-import { BtnColorSchema, IButton, INormalButton } from "@src/types/root";
+import {
+  BtnColorSchema,
+  IButton,
+  INormalButton,
+  IRedirectButton,
+} from "@src/types/root";
 import React, { useState, useEffect } from "react";
 import { SIconStore } from "../_icon";
 import { IconName } from "@src/types/root/_icon";
+import Link from "next/link";
 
 //Common layout
 const BaseButton = ({ btnText, colorSchema, isArrow }: IButton) => {
@@ -83,5 +89,18 @@ export const Button = (props: INormalButton) => {
     >
       <BaseButton {...props} />
     </span>
+  );
+};
+
+export const CRedirectButton = (props: IRedirectButton) => {
+  return (
+    <Link href={props.redirectLink} passHref legacyBehavior>
+      <a
+        target={props.isOpenNewTab ? "_blank" : "_self"}
+        data-testid={props.dataTestId}
+      >
+        <BaseButton {...props} />
+      </a>
+    </Link>
   );
 };
