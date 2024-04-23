@@ -21,6 +21,7 @@ export async function SProductSection({
         <div className="flex-[1_1_50%]">
           <CSearchBar />
         </div>
+        {/* only admin can see this button of add delete and update */}
         {loggedInUser && loggedInUser.userType == "admin" && (
           <>
             <div className="flex-[1_1_16%]">
@@ -47,6 +48,8 @@ export async function SProductSection({
           </>
         )}
       </div>
+
+      {/* dynamically show all products */}
       <div
         className={`grid grid-cols-12 gap-2  mt-[5rem] pl-[2rem] place-content-center`}
       >
@@ -73,19 +76,3 @@ export async function SProductSection({
     </div>
   );
 }
-//  {
-//    products.length ? (
-//      <>
-//        {products.map((product) => {
-//          return (
-//            <div key={product.productId}>
-//              <p>{product.name}</p>
-//              <p>hello</p>
-//            </div>
-//          );
-//        })}
-//      </>
-//    ) : (
-//      <div>No Product found!!</div>
-//    );
-//  }

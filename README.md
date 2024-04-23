@@ -1,49 +1,66 @@
-# "Intro to Testing in Next.js"
+## Key Technologies
 
-## with Jest, React Testing Library, TypeScript
+**Client-Side:** Next js, TailwindCSS
 
----
+**Language:** TypeScript
 
-### Author Links
+**Test**: Jest
 
-👋 Hello, I'm Dave Gray.
+**Documentation**: Lucidchart
 
-👉 [My Courses](https://courses.davegray.codes/)
+## Demo
 
-✅ [Check out my YouTube Channel with hundreds of tutorials](https://www.youtube.com/DaveGrayTeachesCode).
+- **Login page**
+  <img src = "public/doc/demo/loginFormPage.png"  >
 
-🚩 [Subscribe to my channel](https://bit.ly/3nGHmNn)
+- **Profile page of User**
+  <img src = "public/doc/demo/profilePageOne.png"  >
 
-☕ [Buy Me A Coffee](https://buymeacoffee.com/DaveGray)
+- **Profile page of Admin**
+  <img src = "public/doc/demo/profilePageTwo.png"  >
 
-🚀 Follow Me:
+- **All Product Page**
+  <img src = "public/doc/demo/showAllProductPage.png"  >
 
-- [Twitter](https://twitter.com/yesdavidgray)
-- [LinkedIn](https://www.linkedin.com/in/davidagray/)
-- [Blog](https://yesdavidgray.com)
-- [Reddit](https://www.reddit.com/user/DaveOnEleven)
+- **Single Product Page**
+  <img src = "public/doc/demo/singleProductPage.png"  >
 
----
+- **User List Page**
+  <img src = "public/doc/demo/userListPage.png"  >
 
-### Description
+## Run Locally
 
-📺 [YouTube Video](https://youtu.be/AS79oJ3Fcf0) for this repository.
+Clone the project
 
-### 📚 References
-- 🔗 [Next.js Official Site](https://nextjs.org/)
-- 🔗 [TypeScript Official Site](https://www.typescriptlang.org/)
-- 🔗 [Jest Official Site](https://jestjs.io/)
-- 🔗 [React Testing Library Official Site](https://testing-library.com/docs/react-testing-library/intro)
+```bash
+  git clone https://github.com/SYShopnil/ATPL-Task.git
+```
 
----
+Go to the project directory
 
-### ⚙ Free Web Dev Tools
-- 🔗 [Google Chrome Web Browser](https://google.com/chrome/)
-- 🔗 [Visual Studio Code (aka VS Code)](https://code.visualstudio.com/)
-- 🔗 [ES7 React Snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+```bash
+  cd
+  ATPL-Task
+```
 
----
+Install dependencies
 
-### 🎓 Academic Honesty
+```bash
+  npm install || npm i
+```
 
-**DO NOT COPY FOR AN ASSIGNMENT** - Avoid plagiarism and adhere to the spirit of this [Academic Honesty Policy](https://www.freecodecamp.org/news/academic-honesty-policy/).
+Start the server
+
+```bash
+  npm run dev
+```
+
+Start the Test
+
+```bash
+  npm run test
+```
+
+## Support
+
+For support, sadmanishopnil@gmail.com

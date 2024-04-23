@@ -19,8 +19,8 @@ export async function LoginController({
       payload: { user },
     } = await searchIndividualUserByEmail(email);
     if (user && user.password == password) {
-      cookieStore.set(EAuth.AuthTokenCookieName, user.email); //here jwt token will be store in the cookie
-
+      //here jwt token will be store in the cookie (TO DO)
+      cookieStore.set(EAuth.AuthTokenCookieName, user.email);
       redirectPath = "/dashboard/profile";
     } else {
       redirectPath = "/";

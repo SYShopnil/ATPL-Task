@@ -1,5 +1,6 @@
 import { Authorization } from "@root/lib/authorization";
 import { RUserList } from "@src/components/compound";
+import { SLoading } from "@src/components/root";
 import { Suspense } from "react";
 
 export default async function UserListPage() {
@@ -10,7 +11,7 @@ export default async function UserListPage() {
         User List
       </h1>
       <hr />
-      <Suspense>
+      <Suspense fallback={<SLoading text="User List Loading..." />}>
         <RUserList />
       </Suspense>
     </section>

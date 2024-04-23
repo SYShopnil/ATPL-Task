@@ -1,5 +1,9 @@
 import { getIndividualProductById } from "@root/lib/product-handler";
-import { CRedirectButton, RSingleProduct } from "@src/components/root";
+import {
+  CRedirectButton,
+  RSingleProduct,
+  SLoading,
+} from "@src/components/root";
 import { ISingleProductPage } from "@src/types/app/dashboard/products/[id]";
 import { IGetIndividualProductByIdReturn } from "@src/types/lib/product-handler";
 import { BtnColorSchema } from "@src/types/root";
@@ -23,7 +27,7 @@ export default function SingleProductPage({
         />
       </div>
       <div className={`col-span-12`}>
-        <Suspense fallback={<div>Loading... Product</div>}>
+        <Suspense fallback={<SLoading text="Loading... Product" />}>
           <RSingleProduct
             requestFetchForSingleProduct={requestForGetProductDataById}
           />

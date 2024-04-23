@@ -8,6 +8,7 @@ export enum IconName {
   Logo = "Logo",
   SiPrivateinternetaccess = "SiPrivateinternetaccess",
   TbError404 = "TbError404",
+  FaArrowAltCircleRight = "FaArrowAltCircleRight",
 }
 
 export interface IIconStore {

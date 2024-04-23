@@ -11,7 +11,7 @@ export default async function DashboardLayout({
 }) {
   const {
     payload: { loggedInUser },
-  } = await getLoggedInUser();
+  } = await getLoggedInUser(); // get the logged in user
   if (loggedInUser) {
     return (
       <div className={`grid grid-cols-12 `}>

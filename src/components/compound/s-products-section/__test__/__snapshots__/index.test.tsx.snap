@@ -90,7 +90,7 @@ exports[`When Product Section has rendered Expect render successfully 1`] = `
                 class="flex justify-center items-center  "
               >
                 <span
-                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#449657]  duration-[0.5s] text-[#449657] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#449657]   "
+                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#7F4D4F]  duration-[0.5s] text-[#7F4D4F] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#7F4D4F]   "
                 >
                   <span>
                     View Details
@@ -154,7 +154,7 @@ exports[`When Product Section has rendered Expect render successfully 1`] = `
                 class="flex justify-center items-center  "
               >
                 <span
-                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#449657]  duration-[0.5s] text-[#449657] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#449657]   "
+                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#7F4D4F]  duration-[0.5s] text-[#7F4D4F] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#7F4D4F]   "
                 >
                   <span>
                     View Details
@@ -218,7 +218,7 @@ exports[`When Product Section has rendered Expect render successfully 1`] = `
                 class="flex justify-center items-center  "
               >
                 <span
-                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#449657]  duration-[0.5s] text-[#449657] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#449657]   "
+                  class="text-base md:text-base_2  flex justify-center items-center px-[1rem] py-[0.5rem] rounded-[0.563rem] w-[100%] h-[100%] bg-[#EBF5EC] hover:bg-[#7F4D4F]  duration-[0.5s] text-[#7F4D4F] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#7F4D4F]   "
                 >
                   <span>
                     View Details

@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 export const CSearchBar = () => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // Call the search handler function passed from props
+    //inactive functionality
     console.log(event.target.value);
   };
 

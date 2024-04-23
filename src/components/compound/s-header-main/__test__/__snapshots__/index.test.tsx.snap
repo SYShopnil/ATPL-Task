@@ -64,9 +64,6 @@ exports[`When Header Main has rendered Expect render successfully 1`] = `
         class="font-bold text-white text-lg"
       />
     </div>
-    <div
-      data-testid="cLogoutContainer"
-    />
   </div>
 </nav>
 `;

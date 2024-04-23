@@ -21,7 +21,7 @@ export const CLoginFormWithSubmit = () => {
     }));
   };
 
-  const handleSubmit = async (): Promise<void> => {
+  const formSubmitHandler = async (): Promise<void> => {
     setIsLoading(true);
     try {
       await LoginController(formData);
@@ -67,9 +67,9 @@ export const CLoginFormWithSubmit = () => {
 
         <Button
           btnText={isLoading ? "Loading.." : "Login"}
-          colorSchema={BtnColorSchema.SolidBgGrayTextViolet}
+          colorSchema={BtnColorSchema.SolidBgWhiteTextGreen}
           isArrow={false}
-          clickHandler={handleSubmit}
+          clickHandler={formSubmitHandler}
         />
         <span className={`text-bold `}>{payload}</span>
       </form>

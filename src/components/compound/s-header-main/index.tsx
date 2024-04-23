@@ -1,11 +1,14 @@
 import React from "react";
-import { CLogout, SIconStore } from "@src/components/root";
+import { SIconStore } from "@src/components/root";
 import { IconName } from "@src/types/root/_icon";
 import Link from "next/link";
 import { getLoggedInUser } from "@root/lib/user-handler";
-import { CIsLoggedInContainer } from "../c-logout-container";
 import { EDataTestId } from "@src/types/common";
+import dynamic from "next/dynamic";
 
+const DynamicLogout = dynamic(() => import("../../root/c-logout/index"), {
+  ssr: false,
+});
 export async function SHeaderMain() {
   const {
     payload: { isLoggedIn, loggedInUser },
@@ -28,9 +31,7 @@ export async function SHeaderMain() {
             {loggedInUser && `Hello ${loggedInUser.userName}`}
           </p>
         </div>
-        <CIsLoggedInContainer isLoggedIn={isLoggedIn}>
-          <CLogout />
-        </CIsLoggedInContainer>
+        {isLoggedIn && <DynamicLogout />}
       </div>
     </nav>
   );

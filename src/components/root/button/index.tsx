@@ -31,9 +31,9 @@ const BaseButton = ({ btnText, colorSchema, isArrow }: IButton) => {
     }
     case BtnColorSchema.SolidBgWhiteTextGreen: {
       appliedBtnBgColorStyle =
-        "bg-[#EBF5EC] hover:bg-[#449657]  duration-[0.5s] text-[#449657] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#449657]";
+        "bg-[#EBF5EC] hover:bg-[#7F4D4F]  duration-[0.5s] text-[#7F4D4F] hover:text-[#EBF5EC]   border-[0.063rem] hover:border-[#EBF5EC] border-[#7F4D4F]";
       setRootFillValue["onHover"] = "#EBF5EC";
-      setRootFillValue["initial"] = "#449657";
+      setRootFillValue["initial"] = "#7F4D4F";
       break;
     }
     case BtnColorSchema.SolidBgGrayTextViolet: {
@@ -69,7 +69,10 @@ const BaseButton = ({ btnText, colorSchema, isArrow }: IButton) => {
           <span
             className={`ml-[1rem] h-[1.5rem] w-[1.5rem]  flex justify-center items-center`}
           >
-            <SIconStore iconName={IconName.DownArrow} fill={fillValue} />
+            <SIconStore
+              iconName={IconName.FaArrowAltCircleRight}
+              fill={fillValue}
+            />
           </span>
         )}
       </span>

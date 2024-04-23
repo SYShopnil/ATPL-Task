@@ -9,13 +9,14 @@ export const CPaginationTrack = ({
   currentPage,
   totalPage,
 }: ICPaginationTrack) => {
-  const createFakeArray = new Array(totalPage).fill("");
+  //have to show total needed page as linkable option
+  const catchNeedTotalPageNumberAsArray = new Array(totalPage).fill("");
   return (
     <div
       data-testid={EDataTestId.CPaginationTrack}
       className={`flex space-x-2`}
     >
-      {createFakeArray.map((item, ind) => {
+      {catchNeedTotalPageNumberAsArray.map((_, ind) => {
         const trackIndex = ++ind;
         const activeBg = currentPage == trackIndex && "!bg-[#E0E3EA]";
         const activeText = currentPage == trackIndex && " !text-[#7F4D4F]";

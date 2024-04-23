@@ -4,7 +4,7 @@ import { Button } from "../button";
 import { BtnColorSchema } from "@src/types/root";
 import { logoutController } from "@root/lib/login-handler";
 
-export const CLogout = () => {
+const CLogout = () => {
   const logoutHandler = async () => {
     try {
       await logoutController();
@@ -23,3 +23,4 @@ export const CLogout = () => {
     </React.Fragment>
   );
 };
+export default CLogout;

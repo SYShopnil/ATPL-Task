@@ -1,6 +1,8 @@
+import { configProductDataLimit } from "@root/config";
 import { Authorization } from "@root/lib/authorization";
 import { getAllProducts } from "@root/lib/product-handler";
 import { SProductSection } from "@src/components/compound";
+import { SLoading } from "@src/components/root";
 import { IProductPage } from "@src/types/app/dashboard/products";
 import { IGetAllProductsReturn } from "@src/types/lib/product-handler";
 import { Suspense } from "react";
@@ -11,11 +13,11 @@ export default async function ProductsPage({ searchParams }: IProductPage) {
   const requestForGetAllProduct: Promise<IGetAllProductsReturn> =
     getAllProducts({
       currentPage: currentPage,
-      dataLimit: 6,
+      dataLimit: configProductDataLimit,
     });
   return (
     <section>
-      <Suspense fallback={<div>Loading....</div>}>
+      <Suspense fallback={<SLoading />}>
         <SProductSection requestForGetAllProduct={requestForGetAllProduct} />
       </Suspense>
     </section>

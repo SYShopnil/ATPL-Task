@@ -11,7 +11,6 @@ export function SProductCard({
   name,
   price,
 }: ISProductCard) {
-  // console.log(image);
   return (
     <div
       data-testid={EDataTestId.SProductCard}

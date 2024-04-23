@@ -26,12 +26,21 @@ const paginationHandler: (
   dataCollection,
   inputPageNo
 ) => {
-  const limitData: number = inputDataLimit || 5; //if data limit has given from body then that will be apply otherwise global default data limit will b apply
-  const totalData: number = dataCollection.length; //get all data count
-  const pageNo: number = +inputPageNo ? +inputPageNo : 1; //if page number has given from body then that will be apply otherwise global default page number will b apply
-  // const skipData: number = pageNo * limitData; //this amount of data will be skip
-  const skipData: number = pageNo * limitData - limitData; //this amount of data will be skip
-  const totalPage: number = Math.ceil(totalData / limitData); //total this amount of page we need
+  //if data limit has given from body then that will be apply otherwise global default data limit will b apply
+  const limitData: number = inputDataLimit || 5;
+
+  //get all data count
+  const totalData: number = dataCollection.length;
+
+  //if page number has given from body then that will be apply otherwise global default page number will b apply
+  const pageNo: number = +inputPageNo ? +inputPageNo : 1;
+
+  //this amount of data will be skip
+  const skipData: number = pageNo * limitData - limitData;
+
+  //total this amount of page we need
+  const totalPage: number = Math.ceil(totalData / limitData);
+
   return {
     dataLimit: limitData,
     skipData,
@@ -53,6 +62,11 @@ function getPaginationProductByApplyingSkipLimitData(
   dataLimit: number,
   skipData: number
 ): IProduct[] {
+  /**
+   *
+   *  Just slice or cut data from  respective products
+   *
+   */
   const startIndex = skipData;
   const endIndex = skipData + dataLimit;
   return products.slice(startIndex, endIndex);
@@ -70,17 +84,18 @@ export async function getAllProducts({
       currentPage
     );
 
-    const cutData: IProduct[] = getPaginationProductByApplyingSkipLimitData(
-      getAllProduct,
-      dataLimit,
-      skipData
-    );
-    if (cutData.length) {
+    const getProductsAfterApplyingSkipAndLimitLogic: IProduct[] =
+      getPaginationProductByApplyingSkipLimitData(
+        getAllProduct,
+        dataLimit,
+        skipData
+      );
+    if (getProductsAfterApplyingSkipAndLimitLogic.length) {
       return {
         message: `${getAllProduct.length} products has found!!`,
         status: 202,
         payload: {
-          products: cutData,
+          products: getProductsAfterApplyingSkipAndLimitLogic,
           totalPage: totalPage.toFixed(),
           currentPage: +currentPage,
         },
@@ -90,7 +105,7 @@ export async function getAllProducts({
         message: `No Product found!!!`,
         status: 404,
         payload: {
-          products: cutData,
+          products: getProductsAfterApplyingSkipAndLimitLogic,
           totalPage: totalPage.toFixed(),
           currentPage: 0,
         },

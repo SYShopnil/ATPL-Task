@@ -10,20 +10,28 @@ export async function searchIndividualUserByEmail(
   email: string
 ): Promise<ISearchIndividualUserByEmailReturn> {
   return new Promise(async (resolve) => {
-    const parseUsersData: IUser[] = JSON.parse(
-      await fs.readFile(process.cwd() + "/public/db/user.db.json", "utf8")
-    );
-    const getUser = parseUsersData.find((user) => {
-      return user.email == email;
-    });
-    if (getUser) {
-      resolve({
-        message: "",
-        status: 202,
-        payload: {
-          user: getUser,
-        },
+    const getAllUserFromJsonDB = await getAllUsers();
+    if (getAllUserFromJsonDB) {
+      const getUserQueryByEmail = getAllUserFromJsonDB.find((user) => {
+        return user.email == email;
       });
+      if (getUserQueryByEmail) {
+        resolve({
+          message: "",
+          status: 202,
+          payload: {
+            user: getUserQueryByEmail,
+          },
+        });
+      } else {
+        resolve({
+          message: "",
+          status: 404,
+          payload: {
+            user: null,
+          },
+        });
+      }
     } else {
       resolve({
         message: "",
@@ -39,7 +47,7 @@ export async function searchIndividualUserByEmail(
 export async function getLoggedInUser(): Promise<IGetLoggedInUserResponse> {
   try {
     const cookiesStore = cookies();
-    const getAuthToken = cookiesStore.get("auth");
+    const getAuthToken = cookiesStore.get("auth"); //this toke should be a decrypted jwt token
     if (getAuthToken) {
       const { value: token } = getAuthToken;
       const getUserEmail = token;
@@ -90,11 +98,11 @@ export async function getLoggedInUser(): Promise<IGetLoggedInUserResponse> {
 
 export async function getAllUsers(): Promise<IUser[] | null> {
   return new Promise(async (resolve) => {
-    const parseUser: IUser[] = JSON.parse(
+    const parseUserFromJsonDB: IUser[] = JSON.parse(
       await fs.readFile(process.cwd() + "/public/db/user.db.json", "utf8")
     );
-    if (parseUser) {
-      resolve(parseUser);
+    if (parseUserFromJsonDB) {
+      resolve(parseUserFromJsonDB);
     } else {
       resolve(null);
     }
