@@ -6,6 +6,7 @@ const authProtectedRoute = [
   "/dashboard/profile",
   "/dashboard/userList",
   "/dashboard/products",
+  "/dashboard/products/[id]",
 ];
 
 export function middleware(request: NextRequest) {

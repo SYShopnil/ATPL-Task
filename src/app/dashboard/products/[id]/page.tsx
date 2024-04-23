@@ -1,12 +1,9 @@
 import { getIndividualProductById } from "@root/lib/product-handler";
 import { CRedirectButton, RSingleProduct } from "@src/components/root";
+import { ISingleProductPage } from "@src/types/app/dashboard/products/[id]";
 import { IGetIndividualProductByIdReturn } from "@src/types/lib/product-handler";
 import { BtnColorSchema } from "@src/types/root";
 import { Suspense } from "react";
-
-interface ISingleProductPage {
-  params: { id: string };
-}
 
 export default function SingleProductPage({
   params: { id: productId },

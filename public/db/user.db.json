@@ -3,23 +3,23 @@
     "email": "sadmanishopnil@gmail.com",
     "password": "123456789",
     "userName": "John Doe",
-    "profilePicLink": "https://example.com/profile_pic1.jpg",
+    "profilePicLink": "/assert/default-profile.png",
     "userType": "user",
     "gender": "male"
   },
   {
-    "email": "user2@example.com",
-    "password": "password2",
+    "email": "sadmanishopnil1@gmail.com",
+    "password": "123456789",
     "userName": "Jane Smith",
-    "profilePicLink": "https://example.com/profile_pic2.jpg",
+    "profilePicLink": "/assert/default-profile.png",
     "userType": "admin",
-    "gender": "female"
+    "gender": "male"
   },
   {
-    "email": "user3@example.com",
-    "password": "password3",
-    "userName": "Alice Johnson",
-    "profilePicLink": "https://example.com/profile_pic3.jpg",
+    "email": "xyz@gmail.com",
+    "password": "123456789",
+    "userName": "Harry Rose",
+    "profilePicLink": "/assert/default-profile.png",
     "userType": "user",
     "gender": "female"
   }

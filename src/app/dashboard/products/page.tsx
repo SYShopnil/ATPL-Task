@@ -1,12 +1,9 @@
 import { Authorization } from "@root/lib/authorization";
 import { getAllProducts } from "@root/lib/product-handler";
 import { SProductSection } from "@src/components/compound";
+import { IProductPage } from "@src/types/app/dashboard/products";
 import { IGetAllProductsReturn } from "@src/types/lib/product-handler";
 import { Suspense } from "react";
-
-interface IProductPage {
-  searchParams?: { [key: string]: string | undefined };
-}
 
 export default async function ProductsPage({ searchParams }: IProductPage) {
   await Authorization(["admin", "user"]);
@@ -14,7 +11,7 @@ export default async function ProductsPage({ searchParams }: IProductPage) {
   const requestForGetAllProduct: Promise<IGetAllProductsReturn> =
     getAllProducts({
       currentPage: currentPage,
-      dataLimit: 5,
+      dataLimit: 6,
     });
   return (
     <section>

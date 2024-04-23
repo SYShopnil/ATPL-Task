@@ -87,3 +87,16 @@ export async function getLoggedInUser(): Promise<IGetLoggedInUserResponse> {
     };
   }
 }
+
+export async function getAllUsers(): Promise<IUser[] | null> {
+  return new Promise(async (resolve) => {
+    const parseUser: IUser[] = JSON.parse(
+      await fs.readFile(process.cwd() + "/public/db/user.db.json", "utf8")
+    );
+    if (parseUser) {
+      resolve(parseUser);
+    } else {
+      resolve(null);
+    }
+  });
+}

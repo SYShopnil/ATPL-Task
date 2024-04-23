@@ -1,20 +1,20 @@
 "use client";
 
+import { EDataTestId } from "@src/types/common";
+import { ICPaginationTrack } from "@src/types/root/c-pagnination-track";
 import Link from "next/link";
 import React from "react";
-
-interface CPaginationTrack {
-  currentPage: number;
-  totalPage: number;
-}
 
 export const CPaginationTrack = ({
   currentPage,
   totalPage,
-}: CPaginationTrack) => {
+}: ICPaginationTrack) => {
   const createFakeArray = new Array(totalPage).fill("");
   return (
-    <div className={`flex space-x-2`}>
+    <div
+      data-testid={EDataTestId.CPaginationTrack}
+      className={`flex space-x-2`}
+    >
       {createFakeArray.map((item, ind) => {
         const trackIndex = ++ind;
         const activeBg = currentPage == trackIndex && "!bg-[#E0E3EA]";

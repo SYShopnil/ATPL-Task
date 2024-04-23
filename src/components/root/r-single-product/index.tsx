@@ -1,11 +1,8 @@
-import { IGetIndividualProductByIdReturn } from "@src/types/lib/product-handler";
 import { Button } from "../button";
 import { BtnColorSchema } from "@src/types/root";
 import Image from "next/image";
-
-interface IRSingleProduct {
-  requestFetchForSingleProduct: Promise<IGetIndividualProductByIdReturn>;
-}
+import { EDataTestId } from "@src/types/common";
+import { IRSingleProduct } from "@src/types/root/r-single-product";
 
 export async function RSingleProduct({
   requestFetchForSingleProduct,
@@ -16,7 +13,10 @@ export async function RSingleProduct({
   return (
     <>
       {product ? (
-        <div className={`grid grid-cols-12 gap-2 px-[1.5rem]`}>
+        <div
+          data-testid={EDataTestId.RSingleProduct}
+          className={`grid grid-cols-12 gap-2 px-[1.5rem]`}
+        >
           <div
             className={`col-span-12 lg:col-span-5 flex justify-center items-center`}
           >
@@ -25,7 +25,6 @@ export async function RSingleProduct({
               src={product.image}
               placeholder="blur"
               blurDataURL="/assert/blur-demo-product.jpg"
-              objectFit="cover"
               width={350}
               height={500}
             />

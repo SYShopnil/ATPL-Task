@@ -1,12 +1,10 @@
+import { getLoggedInUser } from "@root/lib/user-handler";
 import { Button, SProductCard } from "@src/components/root";
 import { CPaginationTrack } from "@src/components/root/c-pagnination-track";
 import { CSearchBar } from "@src/components/root/search-bar";
-import { IGetAllProductsReturn } from "@src/types/lib/product-handler";
 import { BtnColorSchema } from "@src/types/root";
-
-interface ISProductSection {
-  requestForGetAllProduct: Promise<IGetAllProductsReturn>;
-}
+import { EDataTestId } from "@src/types/common";
+import { ISProductSection } from "@src/types/compound/s-products-section";
 
 export async function SProductSection({
   requestForGetAllProduct,
@@ -14,33 +12,40 @@ export async function SProductSection({
   const {
     payload: { products, currentPage, totalPage },
   } = await requestForGetAllProduct;
+  const {
+    payload: { loggedInUser },
+  } = await getLoggedInUser();
   return (
-    <div>
+    <div data-testid={EDataTestId.SProductSection}>
       <div className={`flex justify-evenly items-start space-x-2 pl-[2rem]`}>
         <div className="flex-[1_1_50%]">
           <CSearchBar />
         </div>
-        <div className="flex-[1_1_16%]">
-          <Button
-            btnText={"Add++"}
-            isArrow={true}
-            colorSchema={BtnColorSchema.SolidBgWhiteTextGreen}
-          />
-        </div>
-        <div className="flex-[1_1_16%]">
-          <Button
-            btnText={"Update"}
-            isArrow={true}
-            colorSchema={BtnColorSchema.SolidBgVioletTextWhite}
-          />
-        </div>
-        <div className="flex-[1_1_17%]">
-          <Button
-            btnText={"Delete--"}
-            isArrow={true}
-            colorSchema={BtnColorSchema.SolidBgGrayTextViolet}
-          />
-        </div>
+        {loggedInUser && loggedInUser.userType == "admin" && (
+          <>
+            <div className="flex-[1_1_16%]">
+              <Button
+                btnText={"Add++"}
+                isArrow={true}
+                colorSchema={BtnColorSchema.SolidBgWhiteTextGreen}
+              />
+            </div>
+            <div className="flex-[1_1_16%]">
+              <Button
+                btnText={"Update"}
+                isArrow={true}
+                colorSchema={BtnColorSchema.SolidBgVioletTextWhite}
+              />
+            </div>
+            <div className="flex-[1_1_17%]">
+              <Button
+                btnText={"Delete--"}
+                isArrow={true}
+                colorSchema={BtnColorSchema.SolidBgGrayTextViolet}
+              />
+            </div>
+          </>
+        )}
       </div>
       <div
         className={`grid grid-cols-12 gap-2  mt-[5rem] pl-[2rem] place-content-center`}

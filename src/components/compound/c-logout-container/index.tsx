@@ -1,3 +1,4 @@
+import { EDataTestId } from "@src/types/common";
 import React from "react";
 
 export function CIsLoggedInContainer({
@@ -8,7 +9,7 @@ export function CIsLoggedInContainer({
   isLoggedIn: boolean;
 }) {
   return (
-    <div>
+    <div data-testid={EDataTestId.cLogoutContainer}>
       {isLoggedIn && (
         <>
           <>{children}</>

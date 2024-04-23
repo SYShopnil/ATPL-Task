@@ -2,7 +2,7 @@
 
 import React, { ChangeEvent } from "react";
 import { RiSearchLine } from "react-icons/ri";
-import styles from "./index.module.css"; // Import the module.scss file
+import styles from "./index.module.css";
 
 export const CSearchBar = () => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {

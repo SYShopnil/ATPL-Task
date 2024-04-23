@@ -1,14 +1,8 @@
 import { BtnColorSchema } from "@src/types/root";
 import { CRedirectButton } from "../button";
 import Image from "next/image";
-
-interface ISProductCard {
-  image: string;
-  name: string;
-  desc: string;
-  price: string;
-  id: string;
-}
+import { EDataTestId } from "@src/types/common";
+import { ISProductCard } from "@src/types/root/s-product-card";
 
 export function SProductCard({
   desc,
@@ -19,7 +13,10 @@ export function SProductCard({
 }: ISProductCard) {
   // console.log(image);
   return (
-    <div className={`max-h-[33rem] w-[18.75rem] text-center `}>
+    <div
+      data-testid={EDataTestId.SProductCard}
+      className={`max-h-[33rem] w-[18.75rem] text-center `}
+    >
       <div className={`rounded-sm flex justify-center items-center`}>
         <Image
           alt={name}

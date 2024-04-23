@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When Logout Container rendered  Expect it should render successfully 1`] = `
+<div
+  data-testid="cLogoutContainer"
+>
+  <div>
+    Hello world
+  </div>
+</div>
+`;
