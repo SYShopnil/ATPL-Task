@@ -3,7 +3,7 @@ import { SLoading } from "@src/components/root";
 export default function Loading() {
   return (
     <>
-      <SLoading />
+      <SLoading text="Loading...." />
     </>
   );
 }

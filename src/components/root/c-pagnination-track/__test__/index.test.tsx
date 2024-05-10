@@ -7,8 +7,8 @@ describe("When Pagination Tracker rendered ", () => {
     const { getByTestId } = render(
       <CPaginationTrack currentPage={2} totalPage={5} />
     );
-    const myElement = getByTestId(EDataTestId.CPaginationTrack);
-    // const myElement = screen.getByTestId(EDataTestId.CPaginationTrack);
+    // const myElement = getByTestId(EDataTestId.CPaginationTrack);
+    const myElement = screen.getByTestId(EDataTestId.CPaginationTrack);
     expect(myElement).toMatchSnapshot();
   });
 });

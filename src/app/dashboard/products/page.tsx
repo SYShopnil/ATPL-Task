@@ -17,7 +17,7 @@ export default async function ProductsPage({ searchParams }: IProductPage) {
     });
   return (
     <section>
-      <Suspense fallback={<SLoading />}>
+      <Suspense fallback={<SLoading text="Loading..." />}>
         <SProductSection requestForGetAllProduct={requestForGetAllProduct} />
       </Suspense>
     </section>

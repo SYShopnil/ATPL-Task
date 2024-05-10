@@ -11,7 +11,7 @@ import { EAuth } from "@src/types/common";
 export async function LoginController({
   email,
   password,
-}: ILoginController): Promise<ILoginControllerResponse> {
+}: ILoginController): Promise<void> {
   let redirectPath = "";
   const cookieStore = cookies();
   try {
