@@ -2,11 +2,12 @@ import { NextResponse, NextRequest } from "next/server";
 import { cookies } from "next/headers";
 
 const authProtectedRoute = [
-  "/dashboard",
-  "/dashboard/profile",
-  "/dashboard/userList",
+  // "/dashboard",
+  // "/dashboard/profile",
+  // "/dashboard/userList",
   // "/dashboard/products",
-  "/dashboard/products/[id]",
+  // "/dashboard/products/[id]",
+  "",
 ];
 
 export function middleware(request: NextRequest) {
