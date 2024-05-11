@@ -5,7 +5,7 @@ const authProtectedRoute = [
   "/dashboard",
   "/dashboard/profile",
   "/dashboard/userList",
-  "/dashboard/products",
+  // "/dashboard/products",
   "/dashboard/products/[id]",
 ];
 
