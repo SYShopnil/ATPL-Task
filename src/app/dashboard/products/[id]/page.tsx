@@ -1,4 +1,4 @@
-import { getIndividualProductById } from "@root/lib/product-handler";
+import { getIndividualProductById } from "@src/lib/product-handler";
 import {
   CRedirectButton,
   RSingleProduct,

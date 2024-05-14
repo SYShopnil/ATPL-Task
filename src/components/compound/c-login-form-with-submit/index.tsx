@@ -1,5 +1,5 @@
 "use client";
-import { LoginController } from "@root/lib/login-handler";
+import { LoginController } from "@src/lib/login-handler";
 import { Button } from "@src/components/root";
 import { BtnColorSchema } from "@src/types/root";
 import React, { useState } from "react";

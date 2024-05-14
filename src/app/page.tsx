@@ -1,4 +1,4 @@
-import { getLoggedInUser } from "@root/lib/user-handler";
+import { getLoggedInUser } from "@src/lib/user-handler";
 import { redirect } from "next/navigation";
 
 export default async function Home() {

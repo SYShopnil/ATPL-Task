@@ -1,4 +1,4 @@
-import { getLoggedInUser } from "@root/lib/user-handler";
+import { getLoggedInUser } from "@src/lib/user-handler";
 import Image from "next/image";
 import { SProfileDetails } from "./s-profile-details";
 import { EDataTestId } from "@src/types/common";
@@ -24,7 +24,7 @@ export async function SProfile() {
             src={profilePicLink}
             placeholder="blur"
             priority
-            blurDataURL={`/assert/blur-demo-product.jpg`}
+            blurDataURL={`/static/assert/blur-demo-product.jpg`}
           />
         </div>
         <div className={`space-y-1 text-center`}>

@@ -1,4 +1,4 @@
-import { getAllUsers } from "@root/lib/user-handler";
+import { getAllUsers } from "@src/lib/user-handler";
 import { RTableBody } from "@src/components/root/r-table";
 import { EDataTestId } from "@src/types/common";
 import { IUser } from "@src/types/db/user";

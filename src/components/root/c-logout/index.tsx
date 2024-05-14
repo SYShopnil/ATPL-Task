@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "../button";
 import { BtnColorSchema } from "@src/types/root";
-import { logoutController } from "@root/lib/login-handler";
+import { logoutController } from "@src/lib/login-handler";
 
 const CLogout = () => {
   const logoutHandler = async () => {

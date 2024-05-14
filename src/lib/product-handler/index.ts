@@ -51,7 +51,10 @@ const paginationHandler: (
 export function queryAllProductFromJson(): Promise<IProduct[]> {
   return new Promise(async (resolve) => {
     const parseProduct: IProduct[] = JSON.parse(
-      await fs.readFile(process.cwd() + "/public/db/products.db.json", "utf8")
+      await fs.readFile(
+        process.cwd() + "/public/static/db/products.db.json",
+        "utf8"
+      )
     );
     resolve(parseProduct);
   });

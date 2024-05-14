@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { menuItems } from "@src/types/app/dashboard/layout";
-import { getLoggedInUser } from "@root/lib/user-handler";
+import { getLoggedInUser } from "@src/lib/user-handler";
 import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({

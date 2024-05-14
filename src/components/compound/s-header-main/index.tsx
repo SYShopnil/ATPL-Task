@@ -2,7 +2,7 @@ import React from "react";
 import { SIconStore } from "@src/components/root";
 import { IconName } from "@src/types/root/_icon";
 import Link from "next/link";
-import { getLoggedInUser } from "@root/lib/user-handler";
+import { getLoggedInUser } from "@src/lib/user-handler";
 import { EDataTestId } from "@src/types/common";
 import dynamic from "next/dynamic";
 

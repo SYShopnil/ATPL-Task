@@ -99,7 +99,10 @@ export async function getLoggedInUser(): Promise<IGetLoggedInUserResponse> {
 export async function getAllUsers(): Promise<IUser[] | null> {
   return new Promise(async (resolve) => {
     const parseUserFromJsonDB: IUser[] = JSON.parse(
-      await fs.readFile(process.cwd() + "/public/db/user.db.json", "utf8")
+      await fs.readFile(
+        process.cwd() + "/public/static/db/user.db.json",
+        "utf8"
+      )
     );
     if (parseUserFromJsonDB) {
       resolve(parseUserFromJsonDB);

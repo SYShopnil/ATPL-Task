@@ -1,4 +1,4 @@
-import { getLoggedInUser } from "@root/lib/user-handler";
+import { getLoggedInUser } from "@src/lib/user-handler";
 import { Button, SProductCard } from "@src/components/root";
 import { CPaginationTrack } from "@src/components/root/c-pagnination-track";
 import { CSearchBar } from "@src/components/root/search-bar";
