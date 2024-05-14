@@ -15,24 +15,26 @@ export async function LoginController({
   let redirectPath = "";
   const cookieStore = cookies();
   try {
-    const {
-      payload: { user },
-    } = await searchIndividualUserByEmail(email);
-    if (user && user.password == password) {
-      //here jwt token will be store in the cookie (TO DO)
-      cookieStore.set(EAuth.AuthTokenCookieName, user.email);
-      redirectPath = "/dashboard/profile";
-    } else {
-      redirectPath = "/";
-    }
+    // const getUser = await fetch ("")
+    redirectPath = "/unAuthorized";
+    // const {
+    //   payload: { user },
+    // } = await searchIndividualUserByEmail(email);
+    // if (user && user.password == password) {
+    //   //here jwt token will be store in the cookie (TO DO)
+    //   cookieStore.set(EAuth.AuthTokenCookieName, user.email);
+    //   redirectPath = "/dashboard/profile";
+    // } else {
+    //   redirectPath = "/";
+    // }
   } catch (err) {
-    redirectPath = "/";
+    redirectPath = "/unAuthorized";
     console.log(err);
   } finally {
     if (redirectPath) {
       redirect(redirectPath);
     } else {
-      redirect("/");
+      redirect("/unAuthorized");
     }
   }
 }
